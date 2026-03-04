@@ -4,7 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.png">
     <title>PromptX & DataX 2026</title>
+    <link rel="canonical" href="https://cipher-southampton.github.io/PromptX-DataX/">
+    <!-- SEO META -->
+
+    <meta name="description"
+        content="PromptX & DataX 2026 is a two-day AI, data science, and innovation festival hosted by CiPHER at the University of Southampton Delhi Campus. Participate in prompt hacking, no-code hackathons, and data analysis competitions.">
+
+    <meta name="keywords" content="
+PromptX DataX,
+AI competition India,
+AI hackathon Delhi,
+AI hackathon Gurugram,
+Prompt engineering competition,
+Data science competition students,
+Artificial intelligence event India,
+Student AI conference,
+No code hackathon India,
+University of Southampton Delhi events,
+AI festival India,
+Tech competition India,
+Machine learning competition students
+">
+
+    <meta name="author" content="CiPHER – Computer Science Club, University of Southampton Delhi">
+
+    <meta name="robots" content="index, follow">
+    <!-- OPEN GRAPH (Social sharing) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PromptX & DataX 2026 | AI & Data Innovation Festival">
+    <meta name="twitter:description"
+        content="A two-day AI, prompt engineering, and data science competition hosted by the University of Southampton Delhi Campus.">
+    <meta name="twitter:image" content="https://cipher-southampton.github.io/PromptX-DataX/social-preview.png">
+    <meta property="og:title" content="PromptX & DataX 2026 | AI & Data Innovation Festival">
+
+    <meta property="og:description"
+        content="A two-day festival of AI, prompt engineering, no-code innovation, and data science competitions hosted at the University of Southampton Delhi Campus.">
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:url" content="https://cipher-southampton.github.io/PromptX-DataX/">
+
+    <meta property="og:image" content="https://cipher-southampton.github.io/PromptX-DataX/social-preview.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -751,6 +796,28 @@
             padding: 28px;
         }
 
+        .highlight-email {
+
+            color: black;
+            background: white;
+
+            padding: 3px 8px;
+            border-radius: 6px;
+
+            font-weight: 600;
+
+            text-decoration: none;
+
+            margin-left: 4px;
+
+        }
+
+        .highlight-email:hover {
+
+            background: #f0f0f0;
+
+        }
+
         .overview-highlight-card h3 {
             margin-bottom: 18px;
             color: #19e3c1;
@@ -1029,6 +1096,135 @@
 
             .about-stats {
                 grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        /* RULES SECTION */
+
+        .rules-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .rules-card {
+
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            border-radius: 16px;
+            padding: 32px;
+
+            backdrop-filter: blur(10px);
+
+            transition: .35s;
+        }
+
+        .rules-card:hover {
+            border-color: #19e3c1;
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(25, 227, 193, .15);
+        }
+
+        .rules-card h3 {
+            color: #19e3c1;
+            margin-bottom: 15px;
+        }
+
+        .rules-card ul {
+            padding-left: 18px;
+            opacity: .9;
+            line-height: 1.7;
+        }
+
+        .rules-card li {
+            margin-bottom: 10px;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media(max-width:900px) {
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* WHY PARTICIPATE */
+
+        .why-grid {
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 28px;
+            margin-top: 40px;
+
+        }
+
+        .why-card {
+
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            border-radius: 16px;
+            padding: 28px;
+
+            backdrop-filter: blur(10px);
+
+            transition: .35s;
+        }
+
+        .why-card:hover {
+
+            transform: translateY(-6px);
+
+            border-color: #19e3c1;
+
+            box-shadow: 0 0 25px rgba(25, 227, 193, .15);
+
+        }
+
+        .why-card i {
+
+            color: #19e3c1;
+            width: 34px;
+            height: 34px;
+
+            margin-bottom: 12px;
+
+        }
+
+        .why-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+
+            opacity: .8;
+            font-size: 14px;
+            line-height: 1.6;
+
+        }
+
+        @media(max-width:900px) {
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .why-grid {
+                grid-template-columns: 1fr;
             }
 
         }
@@ -1637,7 +1833,43 @@ REGISTER WIDGET MOBILE
             z-index: 2000;
         }
     </style>
-
+    <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Event",
+ "name": "PromptX & DataX 2026",
+ "description": "AI, Prompt Engineering, No-Code Hackathon and Data Science Competition hosted by CiPHER at the University of Southampton Delhi Campus.",
+ "startDate": "2026-03-21T08:00",
+ "endDate": "2026-03-22T18:00",
+ "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+ "eventStatus": "https://schema.org/EventScheduled",
+ "location": {
+   "@type": "Place",
+   "name": "University of Southampton Delhi Campus",
+   "address": {
+     "@type": "PostalAddress",
+     "streetAddress": "International Tech Park Gurgaon",
+     "addressLocality": "Gurugram",
+     "addressRegion": "Haryana",
+     "postalCode": "122101",
+     "addressCountry": "IN"
+   }
+ },
+ "organizer": {
+   "@type": "Organization",
+   "name": "CiPHER",
+   "url": "https://cipher-southampton.github.io/PromptX-DataX/"
+ },
+ "offers": {
+   "@type": "Offer",
+   "price": "0",
+   "priceCurrency": "INR",
+   "availability": "https://schema.org/InStock",
+   "url": "https://cipher-southampton.github.io/PromptX-DataX/"
+ }
+}
+</script>
+    </script>
 </head>
 
 <body>
@@ -1656,6 +1888,7 @@ REGISTER WIDGET MOBILE
             <a href="#themes">Events</a>
             <a href="#agenda">Agenda</a>
             <a href="#faq">FAQ</a>
+            <a href="mailto:cipher.southampton@gmail.com">Contact Us</a>
         </div>
     </nav>
 
@@ -1836,7 +2069,70 @@ REGISTER WIDGET MOBILE
         </div>
 
     </section>
+    <section id="why">
 
+        <h2>Why Participate?</h2>
+
+        <div class="why-grid">
+
+            <div class="why-card">
+
+                <i data-lucide="brain"></i>
+
+                <h3>Explore AI Hands-On</h3>
+
+                <p>
+                    Work directly with modern AI tools and systems while solving real-world
+                    challenges in prompt engineering, digital innovation, and data analysis.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <i data-lucide="lightbulb"></i>
+
+                <h3>Build Real Projects</h3>
+
+                <p>
+                    Turn creative ideas into functional prototypes during the No-Code Hackathon
+                    and experience the process of building technology solutions from scratch.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <i data-lucide="users"></i>
+
+                <h3>Collaborate & Network</h3>
+
+                <p>
+                    Meet students, innovators, and industry professionals while collaborating
+                    with teammates and learning from experts in AI and technology.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <i data-lucide="trophy"></i>
+
+                <h3>Win Prizes & Certificates</h3>
+
+                <p>
+                    Compete for prizes worth ₹63,000+, gain recognition for your work,
+                    and receive participation or merit certificates.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
     <section id="about">
 
         <h2>About the University</h2>
@@ -2056,6 +2352,92 @@ REGISTER WIDGET MOBILE
 
     </section>
 
+    <section id="speakers">
+
+        <h2>Guest Speakers</h2>
+
+        <div class="speaker-grid">
+
+            <div class="speaker">
+                <div class="speaker-avatar">?</div>
+                <h3>Experts</h3>
+                <div class="role">To Be Revealed</div>
+                <p>
+                    Leading researchers, industry engineers, and AI specialists will join
+                    the conference panel to discuss the future of artificial intelligence,
+                    security, and data-driven innovation.
+                </p>
+            </div>
+
+            <div class="speaker">
+                <div class="speaker-avatar">?</div>
+                <h3>Industry Leaders</h3>
+                <div class="role">Announcement Soon</div>
+                <p>
+                    Guest speakers from the technology industry will share insights on
+                    AI deployment, digital transformation, and the evolving role of
+                    machine intelligence in modern organizations.
+                </p>
+            </div>
+
+            <div class="speaker">
+                <div class="speaker-avatar">?</div>
+                <h3>AI Researchers</h3>
+                <div class="role">Coming Soon</div>
+                <p>
+                    Experts working in artificial intelligence, data science, and
+                    technology policy will discuss real-world applications,
+                    ethics, and the future of responsible AI development.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="prizes">
+
+        <h2>Prizes & Awards</h2>
+
+        <div class="prize-grid">
+
+            <div class="prize-card">
+
+                <div class="prize-icon">
+                    <i data-lucide="users"></i>
+                </div>
+
+                <h3>Team Competitions</h3>
+
+                <div class="prize-amount">₹18,000</div>
+                <p class="prize-label">Winning Team</p>
+
+                <div class="prize-sub">₹9,000</div>
+                <p class="prize-label">Runner Up</p>
+
+            </div>
+
+
+            <div class="prize-card">
+
+                <div class="prize-icon">
+                    <i data-lucide="award"></i>
+                </div>
+
+                <h3>Individual Competition</h3>
+
+                <div class="prize-amount">₹6,000</div>
+                <p class="prize-label">Winner</p>
+
+                <div class="prize-sub">₹3,000</div>
+                <p class="prize-label">Runner Up</p>
+
+            </div>
+
+        </div>
+
+    </section>
     <section id="agenda">
 
         <h2>Event Agenda</h2>
@@ -2143,92 +2525,134 @@ REGISTER WIDGET MOBILE
         </div>
 
     </section>
-    <section id="speakers">
+    <section id="rules">
 
-        <h2>Guest Speakers</h2>
+        <h2>Rules & Guidelines</h2>
 
-        <div class="speaker-grid">
+        <div class="rules-container">
 
-            <div class="speaker">
-                <div class="speaker-avatar">?</div>
-                <h3>Experts</h3>
-                <div class="role">To Be Revealed</div>
-                <p>
-                    Leading researchers, industry engineers, and AI specialists will join
-                    the conference panel to discuss the future of artificial intelligence,
-                    security, and data-driven innovation.
-                </p>
+            <!-- GENERAL RULES -->
+
+            <div class="rules-card">
+
+                <h3>General Event Policies</h3>
+
+                <ul>
+                    <li><b>Organizer’s Discretion:</b> All decisions made by the organizing committee regarding
+                        eligibility, evaluation criteria, shortlisting, and final results are final and binding.</li>
+
+                    <li><b>Right to Modify:</b> The organizing committee reserves the right to update rules, deadlines,
+                        participation criteria, or event structure if required.</li>
+
+                    <li><b>Updated Guidelines:</b> Participants must regularly review official communication channels
+                        for updates.</li>
+
+                    <li><b>Compliance & Permissions:</b> All submissions must comply with applicable laws, institutional
+                        policies, and intellectual property rights.</li>
+
+                    <li><b>Prizes & Recognition:</b> Prize distribution may vary depending on submission quality and
+                        evaluation outcomes.</li>
+
+                    <li><b>Original Work:</b> All submissions must be original work created by the participating
+                        individual or team.</li>
+
+                    <li><b>Legal Responsibility:</b> Participants are responsible for ensuring their submissions comply
+                        with the stated rules and applicable regulations.</li>
+
+                    <li><b>Confidential Judging:</b> All entries will be evaluated privately and confidentially by the
+                        judging panel.</li>
+                </ul>
+
             </div>
 
-            <div class="speaker">
-                <div class="speaker-avatar">?</div>
-                <h3>Industry Leaders</h3>
-                <div class="role">Announcement Soon</div>
-                <p>
-                    Guest speakers from the technology industry will share insights on
-                    AI deployment, digital transformation, and the evolving role of
-                    machine intelligence in modern organizations.
-                </p>
+            <!-- PROMPTX -->
+
+            <div class="rules-card">
+
+                <h3>PromptX – Prompt Hacking Challenge</h3>
+
+                <ul>
+                    <li>Teams must consist of <b>3 participants</b>.</li>
+
+                    <li>Each round includes two phases:
+                        <ul>
+                            <li>Constraint Design Phase – 15 minutes</li>
+                            <li>Prompt Manipulation Phase – 15 minutes</li>
+                        </ul>
+                    </li>
+
+                    <li>Teams alternate between defensive prompt design and adversarial prompt attacks.</li>
+
+                    <li>The AI model configuration will remain fixed for all teams.</li>
+
+                    <li>External APIs, scripts, or code modifications are not permitted.</li>
+
+                    <li>Evaluation will consider breach success, strategy, and logical robustness.</li>
+
+                </ul>
+
             </div>
 
-            <div class="speaker">
-                <div class="speaker-avatar">?</div>
-                <h3>AI Researchers</h3>
-                <div class="role">Coming Soon</div>
-                <p>
-                    Experts working in artificial intelligence, data science, and
-                    technology policy will discuss real-world applications,
-                    ethics, and the future of responsible AI development.
-                </p>
+            <!-- NO CODE -->
+
+            <div class="rules-card">
+
+                <h3>PromptX – No-Code Hackathon</h3>
+
+                <ul>
+                    <li>Teams must consist of <b>3–4 participants</b>.</li>
+
+                    <li>The hackathon includes two stages:
+                        <ul>
+                            <li>Ideation & Planning</li>
+                            <li>Development & Demonstration</li>
+                        </ul>
+                    </li>
+
+                    <li>Approved no-code platforms may include Notion, Glide, Bubble, Airtable, Zapier, and Canva.</li>
+
+                    <li>AI tools may assist development but teams must fully understand their solutions.</li>
+
+                    <li>Traditional coding and external scripts are not permitted.</li>
+
+                    <li>Evaluation will consider innovation, usability, feasibility, and presentation.</li>
+
+                </ul>
+
+            </div>
+
+            <!-- DATAX -->
+
+            <div class="rules-card">
+
+                <h3>DataX – Data Analysis Challenge</h3>
+
+                <ul>
+                    <li>This competition is <b>individual participation</b>.</li>
+
+                    <li>Participants will receive a dataset during the competition.</li>
+
+                    <li>The challenge includes:
+                        <ul>
+                            <li>Data Interpretation & Analysis</li>
+                            <li>Visualization & Insight Presentation</li>
+                        </ul>
+                    </li>
+
+                    <li>Approved tools include Excel, Google Sheets, Tableau, or Power BI.</li>
+
+                    <li>Pre-prepared datasets or automated scripts are not permitted.</li>
+
+                    <li>Evaluation will consider analytical accuracy, clarity of insight, and presentation quality.</li>
+
+                </ul>
+
             </div>
 
         </div>
 
     </section>
 
-
-    <section id="prizes">
-
-        <h2>Prizes & Awards</h2>
-
-        <div class="prize-grid">
-
-            <div class="prize-card">
-
-                <div class="prize-icon">
-                    <i data-lucide="users"></i>
-                </div>
-
-                <h3>Team Competitions</h3>
-
-                <div class="prize-amount">₹18,000</div>
-                <p class="prize-label">Winning Team</p>
-
-                <div class="prize-sub">₹9,000</div>
-                <p class="prize-label">Runner Up</p>
-
-            </div>
-
-
-            <div class="prize-card">
-
-                <div class="prize-icon">
-                    <i data-lucide="award"></i>
-                </div>
-
-                <h3>Individual Competition</h3>
-
-                <div class="prize-amount">₹6,000</div>
-                <p class="prize-label">Winner</p>
-
-                <div class="prize-sub">₹3,000</div>
-                <p class="prize-label">Runner Up</p>
-
-            </div>
-
-        </div>
-
-    </section>
     <section id="faq">
 
         <h2>Frequently Asked Questions</h2>
@@ -2286,34 +2710,34 @@ REGISTER WIDGET MOBILE
             </div>
             <div class="faq-item">
 
-    <div class="faq-question">
-        When is the registration deadline?
-        <i data-lucide="chevron-down"></i>
-    </div>
+                <div class="faq-question">
+                    When is the registration deadline?
+                    <i data-lucide="chevron-down"></i>
+                </div>
 
-    <div class="faq-answer">
-        The final registration deadline for PromptX & DataX is 
-        <b>17 March 2026</b>. 
+                <div class="faq-answer">
+                    The final registration deadline for PromptX & DataX is
+                    <b>17 March 2026</b>.
 
-        Teams will receive confirmation and event details through email
-        after registrations close.
-    </div>
+                    Teams will receive confirmation and event details through email
+                    after registrations close.
+                </div>
 
-</div>
-<div class="faq-item">
+            </div>
+            <div class="faq-item">
 
-    <div class="faq-question">
-        What should I bring to the event?
-        <i data-lucide="chevron-down"></i>
-    </div>
+                <div class="faq-question">
+                    What should I bring to the event?
+                    <i data-lucide="chevron-down"></i>
+                </div>
 
-    <div class="faq-answer">
-        Participants should bring a laptop, charger, and any tools they
-        may need for competitions or presentations along with waterbottles. Internet access and
-        workspace will be provided at the venue.
-    </div>
+                <div class="faq-answer">
+                    Participants should bring a laptop, charger, and any tools they
+                    may need for competitions or presentations along with waterbottles. Internet access and
+                    workspace will be provided at the venue.
+                </div>
 
-</div>
+            </div>
             <div class="faq-item">
 
                 <div class="faq-question">
@@ -2724,8 +3148,14 @@ REGISTER WIDGET MOBILE
         <div class="register-banner">
 
             <span>
-                ⚠️ Please read the <a href="brochure.pdf" target="_blank">event brochure</a> for rules & guidelines
-                before registering.
+                ⚠️ Please read the
+                <a href="brochure.pdf" target="_blank">event brochure</a>
+                for rules & guidelines before registering.
+                Contact
+                <a href="mailto:cipher.southampton@gmail.com" class="email-link">
+                    cipher.southampton@gmail.com
+                </a>
+                for help.
             </span>
 
         </div>
