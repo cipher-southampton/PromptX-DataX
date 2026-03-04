@@ -1,0 +1,2748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptX & DataX 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        section {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 110px 10%;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        section::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            margin-bottom: 60px;
+
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(25, 227, 193, .3),
+                    transparent);
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #19e3c1;
+            font-size: 34px;
+            margin-bottom: 30px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            box-sizing: border-box;
+            z-index: 999;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 25px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to bottom, transparent, #050505);
+        }
+
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+        }
+
+        .hero span {
+            color: #19e3c1;
+        }
+
+        .logo-row {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .cipher-logo {
+            height: 55px;
+        }
+
+        .southampton-logo {
+            height: 40px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            background: #19e3c1;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #19e3c1;
+            border: 2px solid #19e3c1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline:hover {
+            background: #19e3c1;
+            color: black;
+        }
+
+        .btn-outline i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .countdown div {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90px;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .event-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 35px;
+            position: relative;
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            transition: all .35s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px) scale(1.02);
+
+            border-color: #19e3c1;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.6),
+                0 0 30px rgba(25, 227, 193, 0.15);
+        }
+
+        .event-icon {
+            width: 42px;
+            height: 42px;
+            margin-bottom: 14px;
+            color: #19e3c1;
+        }
+
+        .event-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke-width: 1.7;
+        }
+
+        .event-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .event-card p {
+            opacity: .85;
+            line-height: 1.6;
+        }
+
+        @media(max-width:900px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: .7s ease;
+        }
+
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                    #F6A545,
+                    #F4C166,
+                    #F38B8B,
+                    #E58BCF,
+                    #9A8CFF);
+            transform: translateX(-50%);
+            opacity: .7;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all .6s ease;
+        }
+
+        .timeline-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 28px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -9px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -9px;
+        }
+
+        .timeline-item:nth-child(1) .timeline-dot {
+            background: #F6A545;
+            box-shadow: 0 0 12px rgba(246, 165, 69, .7);
+        }
+
+        .timeline-item:nth-child(2) .timeline-dot {
+            background: #F4C166;
+            box-shadow: 0 0 12px rgba(244, 193, 102, .7);
+        }
+
+        .timeline-item:nth-child(3) .timeline-dot {
+            background: #F38B8B;
+            box-shadow: 0 0 12px rgba(243, 139, 139, .7);
+        }
+
+        .timeline-item:nth-child(4) .timeline-dot {
+            background: #E58BCF;
+            box-shadow: 0 0 12px rgba(229, 139, 207, .7);
+        }
+
+        .timeline-item:nth-child(5) .timeline-dot {
+            background: #9A8CFF;
+            box-shadow: 0 0 12px rgba(154, 140, 255, .7);
+        }
+
+        .timeline-date {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .timeline-item:nth-child(1) .timeline-date {
+            color: #F6A545;
+        }
+
+        .timeline-item:nth-child(2) .timeline-date {
+            color: #F4C166;
+        }
+
+        .timeline-item:nth-child(3) .timeline-date {
+            color: #F38B8B;
+        }
+
+        .timeline-item:nth-child(4) .timeline-date {
+            color: #E58BCF;
+        }
+
+        .timeline-item:nth-child(5) .timeline-date {
+            color: #9A8CFF;
+        }
+
+        .timeline-item p {
+            background: #0e0e0e;
+            padding: 14px 18px;
+            border-radius: 8px;
+            border: 1px solid #1c1c1c;
+            opacity: .85;
+            max-width: 340px;
+        }
+
+        .timeline-item:nth-child(odd) p {
+            margin-left: auto;
+        }
+
+        @media(max-width:800px) {
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                text-align: left;
+                left: 0 !important;
+            }
+
+            .timeline-dot {
+                left: 12px !important;
+                right: auto;
+            }
+
+        }
+
+        .speaker-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .speaker {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            padding: 25px;
+            border-radius: 14px;
+
+            text-align: center;
+
+            transition: all .35s ease;
+        }
+
+        .speaker-avatar {
+
+            width: 100%;
+            height: 200px;
+
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: radial-gradient(circle at center, #111, #000);
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            margin-bottom: 15px;
+
+            font-size: 60px;
+            font-weight: 700;
+
+            color: #19e3c1;
+
+            letter-spacing: 2px;
+        }
+
+
+        .speaker:hover {
+            transform: translateY(-8px) scale(1.02);
+
+            border: 1px solid rgba(25, 227, 193, 0.6);
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.6),
+                0 0 25px rgba(25, 227, 193, 0.15);
+        }
+
+        .speaker:hover .speaker-avatar {
+            box-shadow: 0 0 25px rgba(25, 227, 193, .25);
+            transform: scale(1.02);
+            transition: .3s;
+        }
+
+        .speaker img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+
+            border-radius: 12px;
+            margin-bottom: 15px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .speaker .role {
+            color: #19e3c1;
+            font-size: 13px;
+            letter-spacing: .5px;
+        }
+
+        .speaker p {
+            font-size: 14px;
+            opacity: .8;
+            line-height: 1.5;
+        }
+
+        .prize-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .prize-card {
+
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            border-radius: 16px;
+            padding: 40px;
+
+            text-align: center;
+
+            transition: all .35s ease;
+        }
+
+        .prize-card:hover {
+
+            transform: translateY(-8px) scale(1.02);
+
+            border-color: #19e3c1;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.6),
+                0 0 30px rgba(25, 227, 193, 0.15);
+
+        }
+
+        .prize-icon {
+            color: #19e3c1;
+            margin-bottom: 15px;
+        }
+
+        .prize-icon i {
+            width: 36px;
+            height: 36px;
+        }
+
+        .prize-amount {
+
+            font-size: 34px;
+            font-weight: 700;
+            color: #19e3c1;
+
+            margin-top: 15px;
+        }
+
+        .prize-sub {
+
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 20px;
+
+        }
+
+        .prize-label {
+            font-size: 14px;
+            opacity: .7;
+            margin-bottom: 8px;
+        }
+
+        @media(max-width:900px) {
+
+            .prize-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        .agenda-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .agenda-day {
+            background: #0b0b0b;
+            border-radius: 12px;
+            padding: 35px 35px 35px 45px;
+            border: 1px solid #1a1a1a;
+            position: relative;
+        }
+
+        .agenda-day h3 {
+            color: #19e3c1;
+            margin-bottom: 30px;
+            font-size: 22px;
+        }
+
+        .agenda-day::before {
+            content: '';
+            position: absolute;
+            left: 22px;
+            top: 70px;
+            bottom: 30px;
+            width: 2px;
+            background: #1f1f1f;
+        }
+
+        .agenda-event {
+            display: flex;
+            gap: 20px;
+            padding: 16px 0;
+            position: relative;
+        }
+
+        .agenda-event::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 22px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #19e3c1;
+        }
+
+        .agenda-time {
+            font-weight: 600;
+            color: #ffffff;
+            min-width: 70px;
+            font-size: 15px;
+        }
+
+        .agenda-desc {
+            opacity: 0.85;
+            font-size: 15px;
+        }
+
+        .agenda-event:hover {
+            opacity: 1;
+            transform: translateX(3px);
+            transition: .25s;
+        }
+
+        @media(max-width:900px) {
+
+            .agenda-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+        }
+
+        .location {
+            background: #0e0e0e;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #000;
+        }
+
+        @media(max-width:800px) {
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .agenda-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        .overview-intro {
+            max-width: 720px;
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: .9;
+            margin-bottom: 50px;
+        }
+
+        .overview-intro span {
+            color: #19e3c1;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .overview-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 14px;
+            padding: 22px;
+            transition: .3s;
+        }
+
+        .overview-card:hover {
+            border-color: #19e3c1;
+            transform: translateY(-4px);
+        }
+
+        .overview-card i {
+            width: 28px;
+            height: 28px;
+            color: #19e3c1;
+            margin-bottom: 10px;
+        }
+
+        .overview-card h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .overview-card p {
+            font-size: 14px;
+            opacity: .75;
+            line-height: 1.5;
+        }
+
+        @media(max-width:900px) {
+            .overview-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width:600px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .overview-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        .overview-lead {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .overview-lead span {
+            color: #19e3c1;
+        }
+
+        .overview-text p {
+            opacity: .9;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .overview-highlight-card {
+            background: rgba(25, 227, 193, 0.05);
+            border: 1px solid rgba(25, 227, 193, 0.3);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .overview-highlight-card h3 {
+            margin-bottom: 18px;
+            color: #19e3c1;
+        }
+
+        .overview-highlight-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .overview-highlight-card li {
+            margin-bottom: 10px;
+            opacity: .9;
+        }
+
+        .overview-date {
+            opacity: .8;
+            font-size: 14px;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+            margin-top: 60px;
+        }
+
+        .overview-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 24px;
+            transition: .3s;
+        }
+
+        .overview-card:hover {
+            border-color: #19e3c1;
+            transform: translateY(-5px);
+        }
+
+        .overview-card i {
+            width: 30px;
+            height: 30px;
+            color: #19e3c1;
+            margin-bottom: 10px;
+        }
+
+        .overview-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .overview-card p {
+            font-size: 14px;
+            opacity: .8;
+            line-height: 1.6;
+        }
+
+        @media(max-width:900px) {
+
+            .overview-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        .overview-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 22px;
+        }
+
+        .overview-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            opacity: .9;
+        }
+
+        .overview-list i {
+            width: 18px;
+            height: 18px;
+            color: #19e3c1;
+        }
+
+        .overview-date {
+            margin-top: 10px;
+        }
+
+        .overview-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            opacity: .85;
+            font-size: 14px;
+        }
+
+        .overview-meta i {
+            width: 18px;
+            height: 18px;
+            color: #19e3c1;
+        }
+
+        .uni-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .uni-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all .35s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .uni-card:hover {
+            transform: translateY(-6px);
+            border-color: #19e3c1;
+            box-shadow: 0 0 25px rgba(25, 227, 193, .15);
+        }
+
+        .uni-card i {
+            color: #19e3c1;
+            width: 36px;
+            height: 36px;
+            margin-bottom: 12px;
+        }
+
+        .uni-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .uni-card p {
+            opacity: .8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .uni-highlight {
+            margin-top: 60px;
+            background: #0b0b0b;
+            border: 1px solid #1a1a1a;
+            padding: 35px;
+            border-radius: 14px;
+            max-width: 900px;
+        }
+
+        .uni-highlight h3 {
+            color: #19e3c1;
+            margin-bottom: 10px;
+        }
+
+        .uni-highlight p {
+            opacity: .85;
+            line-height: 1.7;
+        }
+
+        @media(max-width:900px) {
+
+            .uni-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .uni-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 40px;
+        }
+
+        .about-lead {
+            font-size: 18px;
+            opacity: .95;
+            line-height: 1.7;
+        }
+
+        .about-lead span {
+            color: #19e3c1;
+        }
+
+        .about-text p {
+            opacity: .85;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .about-stats h3 {
+            color: #19e3c1;
+            margin-bottom: 4px;
+            font-size: 20px;
+        }
+
+        .about-stats p {
+            font-size: 13px;
+            opacity: .7;
+        }
+
+        .about-cards {
+            display: grid;
+            gap: 25px;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 26px;
+            backdrop-filter: blur(10px);
+            transition: .35s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-6px);
+            border-color: #19e3c1;
+            box-shadow: 0 0 25px rgba(25, 227, 193, .15);
+        }
+
+        .about-card i {
+            color: #19e3c1;
+            width: 34px;
+            height: 34px;
+            margin-bottom: 12px;
+        }
+
+        .about-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .about-card p {
+            opacity: .8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media(max-width:900px) {
+
+            .about-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        .event-footer {
+            background: #08161a;
+            padding: 80px 10%;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-brand h3 {
+            color: #19e3c1;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            opacity: .85;
+            line-height: 1.6;
+        }
+
+        .footer-host {
+            margin-top: 12px;
+            font-size: 14px;
+            opacity: .7;
+        }
+
+        .footer-links,
+        .footer-contact,
+        .footer-connect {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links h4,
+        .footer-contact h4,
+        .footer-connect h4 {
+            margin-bottom: 10px;
+            color: #19e3c1;
+        }
+
+        .footer-links a,
+        .footer-connect a {
+            text-decoration: none;
+            color: white;
+            opacity: .8;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover,
+        .footer-connect a:hover {
+            opacity: 1;
+            color: #19e3c1;
+        }
+
+        .footer-btn {
+            display: inline-block;
+            margin-top: 10px;
+            background: #19e3c1;
+            color: black;
+            padding: 10px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            width: max-content;
+        }
+
+        .socials {
+            display: flex;
+            gap: 15px;
+            margin-top: 12px;
+        }
+
+        .socials i {
+            width: 20px;
+            height: 20px;
+            color: #19e3c1;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 10%;
+            background: #000;
+            font-size: 14px;
+            opacity: .85;
+        }
+
+        .footer-policy a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: white;
+            opacity: .8;
+        }
+
+        .footer-policy a:hover {
+            color: #19e3c1;
+        }
+
+        @media(max-width:900px) {
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+        }
+
+        /* mobile */
+
+        @media(max-width:700px) {
+
+            .floating-form {
+                width: 90%;
+                height: 420px;
+                right: 5%;
+                bottom: 15px;
+            }
+
+        }
+
+        /* Floating register button */
+
+        .register-button {
+
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+
+            background: #19e3c1;
+            color: black;
+
+            padding: 14px 20px;
+            border-radius: 30px;
+
+            font-weight: 600;
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .4);
+
+            z-index: 9999;
+            transition: .25s;
+        }
+
+        .register-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .register-widget {
+
+            position: fixed;
+            bottom: 90px;
+            right: 25px;
+
+            width: 420px;
+            height: 520px;
+
+            background: rgba(10, 10, 10, .92);
+            backdrop-filter: blur(12px);
+
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, .08);
+
+            box-shadow:
+                0 15px 50px rgba(0, 0, 0, .6),
+                0 0 30px rgba(25, 227, 193, .15);
+
+            overflow: hidden;
+
+            z-index: 9999;
+
+            display: none;
+        }
+
+        /* Registration banner */
+
+        .register-banner {
+
+            background: linear-gradient(90deg, #19e3c1, #0bbfa4);
+
+            color: black;
+            font-weight: 600;
+            font-size: 14px;
+
+            padding: 10px 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+        .register-banner a {
+            color: black;
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 0, 0, .4);
+        }
+
+        .register-banner a:hover {
+            opacity: .8;
+        }
+
+        /* Floating form container */
+
+        .register-widget {
+            transform: scale(.9);
+            opacity: 0;
+            transition: .25s;
+        }
+
+        .register-widget.active {
+            transform: scale(1);
+            opacity: 1;
+            display: block;
+        }
+
+        /* iframe */
+
+        .register-widget iframe {
+            width: 100%;
+            height: calc(100% - 45px);
+            border: none;
+        }
+
+
+        /* close button */
+
+        .widget-close {
+
+            position: absolute;
+            top: 10px;
+            right: 12px;
+
+            background: #111;
+            border: none;
+
+            color: white;
+
+            padding: 4px 10px;
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+
+        /* mobile */
+
+        @media(max-width:700px) {
+
+            .register-widget {
+                width: 90%;
+                right: 5%;
+            }
+
+        }
+
+        /* =========================
+MOBILE OPTIMIZATION
+========================= */
+
+        @media (max-width: 768px) {
+
+            section {
+                padding: 90px 7%;
+            }
+
+            /* NAVBAR */
+
+            nav {
+                padding: 12px 20px;
+            }
+
+            nav div:last-child {
+                display: flex;
+                gap: 15px;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            /* HERO */
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .logo-row {
+                gap: 20px;
+            }
+
+            .cipher-logo {
+                height: 40px;
+            }
+
+            .southampton-logo {
+                height: 28px;
+            }
+
+            /* COUNTDOWN */
+
+            .countdown {
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .countdown div {
+                width: 70px;
+                padding: 12px;
+            }
+
+            .countdown h2 {
+                font-size: 20px;
+            }
+
+            /* OVERVIEW GRID */
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* SPEAKERS */
+
+            .speaker-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* EVENTS */
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* FOOTER */
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+        }
+
+        /* =========================
+SMALL PHONE FIX
+========================= */
+
+        @media (max-width:480px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .countdown div {
+                width: 65px;
+            }
+
+        }
+
+        /* =========================
+REGISTER WIDGET MOBILE
+========================= */
+
+        @media (max-width:700px) {
+
+            .register-widget {
+
+                width: 100%;
+                height: 100%;
+
+                right: 0;
+                bottom: 0;
+
+                border-radius: 0;
+
+            }
+
+            .register-widget iframe {
+                height: calc(100% - 60px);
+            }
+
+            .register-button {
+
+                right: 18px;
+                bottom: 18px;
+
+                padding: 12px 16px;
+                font-size: 14px;
+
+            }
+
+            .register-banner {
+                font-size: 13px;
+                padding: 12px;
+            }
+
+        }
+
+        /* FAQ SECTION */
+
+        .faq-container {
+            max-width: 900px;
+            margin: auto;
+            margin-top: 40px;
+        }
+
+        .faq-item {
+
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            border-radius: 12px;
+            margin-bottom: 14px;
+
+            overflow: hidden;
+            transition: .3s;
+        }
+
+        .faq-question {
+
+            padding: 18px 22px;
+            cursor: pointer;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .faq-question i {
+            color: #19e3c1;
+        }
+
+        .faq-answer {
+
+            max-height: 0;
+            overflow: hidden;
+
+            opacity: .8;
+            line-height: 1.6;
+
+            padding: 0 22px;
+
+            transition: max-height .35s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 18px 22px;
+        }
+
+        /* FAQ CONTACT CTA */
+
+        .faq-contact {
+
+            margin-top: 50px;
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            border-radius: 16px;
+            padding: 35px;
+
+            backdrop-filter: blur(10px);
+        }
+
+        .faq-contact h3 {
+            margin-bottom: 10px;
+        }
+
+        .faq-contact p {
+            opacity: .85;
+            margin-bottom: 20px;
+        }
+
+        .contact-btn {
+
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            background: #19e3c1;
+            color: black;
+
+            padding: 12px 22px;
+            border-radius: 25px;
+
+            font-weight: 600;
+            text-decoration: none;
+
+            transition: .25s;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .4);
+        }
+
+        /* EVENT STATS */
+
+        .event-stats {
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+
+            margin-top: 28px;
+
+        }
+
+        .stat {
+
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            border-radius: 12px;
+
+            padding: 16px;
+            text-align: center;
+
+            transition: .25s;
+
+        }
+
+        .stat:hover {
+
+            border-color: #19e3c1;
+            transform: translateY(-3px);
+
+        }
+
+        .stat h3 {
+
+            color: #19e3c1;
+            font-size: 24px;
+            margin-bottom: 3px;
+
+        }
+
+        .stat p {
+
+            font-size: 13px;
+            opacity: .7;
+
+        }
+
+        /* mobile */
+
+        @media(max-width:700px) {
+
+            .event-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+
+            background: #19e3c1;
+
+            z-index: 2000;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="scroll-progress"></div>
+        <div>PromptX & DataX</div>
+
+        <div>
+            <a href="https://www.delhi.southampton.ac.uk/" target="_blank">Visit Southampton</a>
+            <a href="brochure.pdf" target="_blank" class="nav-brochure">
+                Download Brochure
+            </a>
+
+            <a href="#overview">Overview</a>
+            <a href="#themes">Events</a>
+            <a href="#agenda">Agenda</a>
+            <a href="#faq">FAQ</a>
+        </div>
+    </nav>
+
+
+    <div class="hero">
+
+        <div id="particles-js"></div>
+
+        <div>
+
+            <div class="logo-row">
+
+                <img src="cipher-logo.jpeg" class="cipher-logo" alt="Cipher Logo">
+                <img src="southampton-logo.png" class="southampton-logo" alt="Southampton Logo">
+
+            </div>
+
+            <h1><span>PromptX</span> & DataX</h1>
+
+            <p>Where Creative Intelligence Meets Responsible Innovation</p>
+
+            <div class="countdown">
+
+                <div>
+                    <h2 id="days">0</h2>Days
+                </div>
+                <div>
+                    <h2 id="hours">0</h2>Hours
+                </div>
+                <div>
+                    <h2 id="minutes">0</h2>Minutes
+                </div>
+                <div>
+                    <h2 id="seconds">0</h2>Seconds
+                </div>
+
+            </div>
+
+            <div class="hero-buttons">
+
+                <a href="#overview" class="btn">Explore Event</a>
+
+                <a href="brochure.pdf" target="_blank" class="btn btn-outline">
+                    <i data-lucide="download"></i>
+                    Download Brochure
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+    <section id="overview">
+
+        <h2>What is PromptX & DataX?</h2>
+
+        <div class="overview-layout">
+
+            <div class="overview-text">
+
+                <p class="overview-lead">
+                    <b>PromptX & DataX 2026</b> is a two-day <span>Creative Intelligence &
+                        Emerging Technology Festival</span> hosted by CiPHER at the
+                    University of Southampton Delhi Campus.
+                </p>
+
+                <p>
+                    The event brings together students, innovators, and analytical thinkers
+                    to tackle real-world challenges in <b>Artificial Intelligence,
+                        digital innovation, and data-driven decision making.</b>
+                </p>
+
+                <p>
+                    Through competitions, hackathons, and expert discussions,
+                    participants explore how modern technology can be applied
+                    responsibly and creatively in industry environments.
+                </p>
+                <div class="event-stats">
+
+                    <div class="stat">
+                        <h3>4</h3>
+                        <p>Events</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3>2</h3>
+                        <p>Days</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3>₹63,000+</h3>
+                        <p>Prize Pool</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3>150+</h3>
+                        <p>Participants</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="overview-highlight-card">
+
+                <h3>What happens at the event</h3>
+
+                <ul>
+                    <ul class="overview-list">
+
+                        <li>
+                            <i data-lucide="shield-alert"></i>
+                            <span>AI Prompt Hacking Competition</span>
+                        </li>
+
+                        <li>
+                            <i data-lucide="rocket"></i>
+                            <span>No-Code Startup Hackathon</span>
+                        </li>
+
+                        <li>
+                            <i data-lucide="bar-chart-3"></i>
+                            <span>Real-World Data Analysis Challenge</span>
+                        </li>
+
+                        <li>
+                            <i data-lucide="mic"></i>
+                            <span>AI Conference Panel with Experts</span>
+                        </li>
+
+                    </ul>
+
+                    <div class="overview-date">
+
+                        <div class="overview-meta">
+                            <i data-lucide="map-pin"></i>
+                            <span>University of Southampton Delhi Campus</span>
+                        </div>
+
+                        <div class="overview-meta">
+                            <i data-lucide="calendar"></i>
+                            <span>21–22 March 2026</span>
+                        </div>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="overview-grid">
+
+            <div class="overview-card">
+                <i data-lucide="shield-alert"></i>
+                <h3>Prompt Hacking</h3>
+                <p>Test the limits of AI systems through red-team vs blue-team prompt engineering challenges.</p>
+            </div>
+
+            <div class="overview-card">
+                <i data-lucide="rocket"></i>
+                <h3>No-Code Innovation</h3>
+                <p>Build real digital products using modern no-code platforms and AI tools.</p>
+            </div>
+
+            <div class="overview-card">
+                <i data-lucide="bar-chart-3"></i>
+                <h3>Data Analysis</h3>
+                <p>Interpret real datasets and present insights through structured visual storytelling.</p>
+            </div>
+
+            <div class="overview-card">
+                <i data-lucide="mic"></i>
+                <h3>AI Conference</h3>
+                <p>Panel discussions exploring AI ethics, governance, and real-world industry impact.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="about">
+
+        <h2>About the University</h2>
+
+        <div class="about-layout">
+
+            <div class="about-text">
+
+                <p class="about-lead">
+                    The <b>University of Southampton</b>, founded in 1862, is one of the
+                    United Kingdom’s leading research universities and a member of the
+                    prestigious <span>Russell Group</span> — representing the UK's most
+                    research-intensive institutions.
+                </p>
+
+                <p>
+                    Southampton is internationally recognised for pioneering work in
+                    <b>Artificial Intelligence, Computer Science, Engineering, Data Science,
+                        and Digital Innovation</b>. Its research drives breakthroughs across
+                    industries ranging from robotics and cybersecurity to healthcare,
+                    aerospace, and sustainable technologies.
+                </p>
+
+                <p>
+                    Through global partnerships, cutting-edge laboratories, and a strong
+                    culture of interdisciplinary collaboration, the university continues to
+                    shape the future of technology and innovation.
+                </p>
+
+                <div class="about-stats">
+
+                    <div>
+                        <h3>Top UK Research</h3>
+                        <p>Member of the elite Russell Group network</p>
+                    </div>
+
+                    <div>
+                        <h3>Global Impact</h3>
+                        <p>Leading research across AI, engineering, and data science</p>
+                    </div>
+
+                    <div>
+                        <h3>1862</h3>
+                        <p>Over 160 years of academic excellence</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-cards">
+
+                <div class="about-card">
+                    <i data-lucide="flask-conical"></i>
+                    <h3>Research Leadership</h3>
+                    <p>
+                        Home to world-class research centres working on artificial
+                        intelligence, robotics, cybersecurity, and emerging technologies.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <i data-lucide="globe"></i>
+                    <h3>Global Collaboration</h3>
+                    <p>
+                        The university collaborates with international institutions,
+                        industry partners, and innovation ecosystems across the world.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <i data-lucide="building"></i>
+                    <h3>Delhi Campus</h3>
+                    <p>
+                        The Southampton Delhi Campus brings British research excellence
+                        and global academic opportunities directly to India.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="timeline">
+
+        <h2>Event Timeline</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">5 March 2026</div>
+                <p>Registrations open for participants across institutions.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">12 March 2026</div>
+                <p>Early registration deadline.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">17 March 2026</div>
+                <p>Final registration deadline.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">19 March 2026</div>
+                <p>Teams confirmed via official channels.</p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">21–22 March 2026</div>
+                <p>Main event at University of Southampton Delhi Campus.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="themes">
+
+        <h2>Event Competitions</h2>
+
+        <div class="events-grid">
+
+            <div class="event-card">
+
+                <div class="event-icon">
+                    <i data-lucide="shield-alert"></i>
+                </div>
+
+                <h3>Prompt Hacking Challenge</h3>
+
+                <p>
+                    Step into the role of an AI security researcher in this high-intensity
+                    Red Team vs Blue Team challenge. Participants design AI system prompts,
+                    defensive guardrails, and clever exploits to test the limits of modern
+                    language models.
+                </p>
+
+                <p>
+                    Expect strategic thinking, creative attacks, and real-world AI safety
+                    scenarios that mirror how companies test and secure intelligent systems.
+                </p>
+
+            </div>
+
+
+            <div class="event-card">
+
+                <div class="event-icon">
+                    <i data-lucide="rocket"></i>
+                </div>
+                <h3>No-Code Hackathon</h3>
+
+                <p>
+                    Build a startup-style product in hours — not weeks. Teams will create
+                    functional digital solutions using modern no-code platforms and
+                    AI-assisted tools.
+                </p>
+
+                <p>
+                    Focus on product thinking, automation, and problem-solving while turning
+                    creative ideas into real prototypes without writing traditional code.
+                </p>
+
+            </div>
+
+
+            <div class="event-card">
+                <div class="event-icon">
+                    <i data-lucide="bar-chart-3"></i>
+                </div>
+                <h3>Data Analysis Challenge</h3>
+
+                <p>
+                    Turn raw data into meaningful insight. Participants will explore
+                    real-world datasets, identify patterns, and present compelling
+                    data-driven stories using modern visualization techniques.
+                </p>
+
+                <p>
+                    Success requires analytical thinking, clarity of communication,
+                    and the ability to transform complex data into actionable conclusions.
+                </p>
+
+            </div>
+
+
+            <div class="event-card">
+                <div class="event-icon">
+                    <i data-lucide="mic"></i>
+                </div>
+                <h3>AI Conference Panel</h3>
+
+                <p>
+                    A curated discussion featuring researchers, technologists, and
+                    industry leaders exploring the evolving impact of artificial
+                    intelligence across society.
+                </p>
+
+                <p>
+                    Topics range from AI in business and cybersecurity to ethics,
+                    governance, and the future of human-AI collaboration.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="agenda">
+
+        <h2>Event Agenda</h2>
+
+        <div class="agenda-container">
+
+            <div class="agenda-day">
+
+                <h3>Day 1 • 21 March 2026</h3>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">08:00</div>
+                    <div class="agenda-desc">Reporting & Participant Registration</div>
+                </div>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">09:30</div>
+                    <div class="agenda-desc">Opening Ceremony & AI Conference Panel</div>
+                </div>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">11:00</div>
+                    <div class="agenda-desc">Seminar: Prompt Engineering & AI Security</div>
+                </div>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">12:00</div>
+                    <div class="agenda-desc">PromptX & DataX Competition Rounds Begin</div>
+                </div>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">13:30</div>
+                    <div class="agenda-desc">Free Lunch!</div>
+                </div>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">14:30</div>
+                    <div class="agenda-desc">Competition Rounds Continue</div>
+                </div>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">17:30</div>
+                    <div class="agenda-desc">End of Day 1</div>
+                </div>
+
+            </div>
+
+
+            <div class="agenda-day">
+
+                <h3>Day 2 • 22 March 2026</h3>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">08:00</div>
+                    <div class="agenda-desc">Participant Reporting</div>
+                </div>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">08:30</div>
+                    <div class="agenda-desc">No-Code Hackathon Begins</div>
+                </div>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">13:00</div>
+                    <div class="agenda-desc">Free Lunch!</div>
+                </div>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">13:30</div>
+                    <div class="agenda-desc">Final Presentations & Evaluations</div>
+                </div>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">17:00</div>
+                    <div class="agenda-desc">Closing Ceremony & Prize Distribution</div>
+                </div>
+
+                <div class="agenda-event">
+                    <div class="agenda-time">18:00</div>
+                    <div class="agenda-desc">End of Event</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <section id="speakers">
+
+        <h2>Guest Speakers</h2>
+
+        <div class="speaker-grid">
+
+            <div class="speaker">
+                <div class="speaker-avatar">?</div>
+                <h3>Experts</h3>
+                <div class="role">To Be Revealed</div>
+                <p>
+                    Leading researchers, industry engineers, and AI specialists will join
+                    the conference panel to discuss the future of artificial intelligence,
+                    security, and data-driven innovation.
+                </p>
+            </div>
+
+            <div class="speaker">
+                <div class="speaker-avatar">?</div>
+                <h3>Industry Leaders</h3>
+                <div class="role">Announcement Soon</div>
+                <p>
+                    Guest speakers from the technology industry will share insights on
+                    AI deployment, digital transformation, and the evolving role of
+                    machine intelligence in modern organizations.
+                </p>
+            </div>
+
+            <div class="speaker">
+                <div class="speaker-avatar">?</div>
+                <h3>AI Researchers</h3>
+                <div class="role">Coming Soon</div>
+                <p>
+                    Experts working in artificial intelligence, data science, and
+                    technology policy will discuss real-world applications,
+                    ethics, and the future of responsible AI development.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="prizes">
+
+        <h2>Prizes & Awards</h2>
+
+        <div class="prize-grid">
+
+            <div class="prize-card">
+
+                <div class="prize-icon">
+                    <i data-lucide="users"></i>
+                </div>
+
+                <h3>Team Competitions</h3>
+
+                <div class="prize-amount">₹18,000</div>
+                <p class="prize-label">Winning Team</p>
+
+                <div class="prize-sub">₹9,000</div>
+                <p class="prize-label">Runner Up</p>
+
+            </div>
+
+
+            <div class="prize-card">
+
+                <div class="prize-icon">
+                    <i data-lucide="award"></i>
+                </div>
+
+                <h3>Individual Competition</h3>
+
+                <div class="prize-amount">₹6,000</div>
+                <p class="prize-label">Winner</p>
+
+                <div class="prize-sub">₹3,000</div>
+                <p class="prize-label">Runner Up</p>
+
+            </div>
+
+        </div>
+
+    </section>
+    <section id="faq">
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-container">
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    Who can participate?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    Students from schools, universities and colleges across India are welcome to participate in PromptX
+                    & DataX
+                    2026.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    Is there a registration fee?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    No. Participation in PromptX & DataX 2026 is completely free.
+                </div>
+
+            </div>
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    How do I register for the event?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    You can register for PromptX & DataX directly using the <b>Register button</b> available on this
+                    website.
+                    Clicking the button will open the registration form.
+
+                    Alternatively, you can also register using this link:
+                    <br><br>
+
+                    <a href="https://forms.office.com/e/CFcCwwwsAx" target="_blank">
+                        https://forms.office.com/e/CFcCwwwsAx
+                    </a>
+                </div>
+
+            </div>
+            <div class="faq-item">
+
+    <div class="faq-question">
+        When is the registration deadline?
+        <i data-lucide="chevron-down"></i>
+    </div>
+
+    <div class="faq-answer">
+        The final registration deadline for PromptX & DataX is 
+        <b>17 March 2026</b>. 
+
+        Teams will receive confirmation and event details through email
+        after registrations close.
+    </div>
+
+</div>
+<div class="faq-item">
+
+    <div class="faq-question">
+        What should I bring to the event?
+        <i data-lucide="chevron-down"></i>
+    </div>
+
+    <div class="faq-answer">
+        Participants should bring a laptop, charger, and any tools they
+        may need for competitions or presentations along with waterbottles. Internet access and
+        workspace will be provided at the venue.
+    </div>
+
+</div>
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    Where will the event be hosted?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    PromptX & DataX 2026 will be hosted at the <b>University of Southampton Delhi Campus</b>, located in
+                    International Tech Park Gurgaon, near Sector 59 on Golf Course Extension Road, Gurugram.
+                    The campus provides modern facilities designed for technology events, research collaboration, and
+                    innovation.
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    How do I reach the venue?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    The event will take place at the University of Southampton Delhi Campus in Gurugram.
+                    The nearest metro station is <b>Sector 55–56 (Rapid Metro Gurugram)</b>.
+                    Shuttle transportation will be arranged from the metro station to the campus for participants.
+                    Detailed pickup timings and instructions will be shared with registered participants before the
+                    event.
+                </div>
+
+            </div>
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    Do I need to have a team to participate?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    Most competitions at PromptX & DataX are <b>team-based</b>. Participants are encouraged to register
+                    in teams of
+                    <b>at least 3 members</b>. If you do not have a team, you may still register individually and teams
+                    may be formed
+                    during the event depending on availability.
+                </div>
+
+            </div>
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    Do I need to attend both days of the event?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    Yes. PromptX & DataX is designed as a two-day experience with different competitions and sessions
+                    scheduled across both days.
+                    Participants are strongly encouraged to attend the full event to take part in all activities.
+                </div>
+
+            </div>
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    What are the timings for the event?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    The event will begin at approximately <b>8:00 AM</b> on both days.
+                    Activities will continue through the day with breaks and will conclude in the evening around
+                    <b>5:30–6:00 PM</b>.
+                    The detailed schedule is available in the agenda section above.
+                </div>
+
+            </div>
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    Will participants receive certificates?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    Yes. <b>All participants will receive e-certificates</b> acknowledging their participation.
+                    Top performers and winners will additionally receive <b>physical merit certificates</b> during the
+                    closing ceremony.
+                </div>
+
+            </div>
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    Which students can participate?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    The event is open to students from <b>Grade 9–12</b> as well as <b>first and second year college
+                        students</b>.
+                    Anyone interested in technology, artificial intelligence, or data is welcome to participate.
+                </div>
+
+            </div>
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    What if I have no prior experience in AI?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    No prior experience is required. The event includes guided sessions and mentors who will help
+                    participants understand the challenges and tools involved.
+                    You will be introduced to the concepts needed to participate effectively in the competitions.
+                </div>
+
+            </div>
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    Do I need prior AI or coding experience?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    No prior experience is required, however some prior experience with AI tools would help. Some events
+                    are beginner-friendly while others allow advanced
+                    participants to explore deeper technical challenges.
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    Do I need to bring my own laptop?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    Yes. Participants are encouraged to bring their own laptops as most challenges involve working with
+                    digital tools, datasets, and online platforms.
+                </div>
+
+            </div>
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    Will food be provided during the event?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    Yes. Lunch and refreshments will be provided for participants on both days of the event.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <div class="faq-question">
+                    How will teams be confirmed?
+                    <i data-lucide="chevron-down"></i>
+                </div>
+
+                <div class="faq-answer">
+                    Confirmed participants and teams will receive official communication via email after the
+                    registration deadline.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="event-footer">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <h3>PromptX & DataX 2026</h3>
+
+                <p>
+                    A two-day festival exploring the future of
+                    <b>Artificial Intelligence, Data, and Digital Innovation.</b>
+                </p>
+
+                <p class="footer-host">
+                    Hosted at the University of Southampton Delhi Campus
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Event Information</h4>
+
+                <a href="#overview">Event Overview</a>
+                <a href="#timeline">Event Timeline</a>
+                <a href="#themes">Competitions</a>
+                <a href="#agenda">Agenda</a>
+                <a href="#speakers">Speakers</a>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <h4>Contact Us</h4>
+
+                <p>
+                    International Tech Park Gurgaon<br>
+                    Near Sec 59, Golf Course Extension Road<br>
+                    Gurugram, Haryana 122101
+                </p>
+
+                <a class="footer-btn" href="https://maps.google.com/?q=University+of+Southampton+Delhi+Campus"
+                    target="_blank">
+                    Campus Location →
+                </a>
+
+            </div>
+
+
+            <div class="footer-connect">
+
+                <h4>Resources</h4>
+
+                <a href="brochure.pdf" target="_blank">Download Event Brochure</a>
+                <a href="https://www.delhi.southampton.ac.uk/" target="_blank">
+                    University Website
+                </a>
+            </div>
+
+        </div>
+        <div class="faq-contact">
+
+            <h3>Further Questions? Contact Us!</h3>
+
+            <p>Our team will be happy to assist you with any queries regarding PromptX & DataX.</p>
+
+            <a class="contact-btn" href="mailto:cipher.southampton@gmail.com">
+
+                <i data-lucide="mail"></i>
+                Contact Us
+
+            </a>
+
+        </div>
+    </section>
+
+
+    <footer class="footer-bottom">
+
+        <div>
+
+            © 2026 PromptX & DataX • University of Southampton Delhi Campus
+
+        </div>
+
+        <div class="footer-policy">
+
+            <a href="https://www.delhi.southampton.ac.uk/policies/privacy/" target="_blank">Privacy</a>
+            <a href="https://www.delhi.southampton.ac.uk/policies/" target="_blank">Policies</a>
+            <a href="https://www.delhi.southampton.ac.uk/policies/accessibility/" target="_blank">
+                Accessibility
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        var countDownDate = new Date("Mar 21, 2026 08:00:00").getTime();
+
+        setInterval(function () {
+
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+
+        }, 1000);
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        });
+
+        document.querySelectorAll(".timeline-item")
+            .forEach(item => {
+                observer.observe(item);
+            });
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 120, density: { enable: true, value_area: 800 } },
+
+                color: { value: "#19e3c1" },
+
+                shape: { type: "circle" },
+
+                opacity: {
+                    value: 0.5,
+                    random: true
+                },
+
+                size: {
+                    value: 3,
+                    random: true
+                },
+
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#19e3c1",
+                    opacity: 0.25,
+                    width: 1
+                },
+
+                move: {
+                    enable: true,
+                    speed: 1.8,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    attract: {
+                        enable: true,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+
+            interactivity: {
+                detect_on: "canvas",
+
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" }
+                },
+
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: { opacity: 0.6 }
+                    },
+
+                    push: {
+                        particles_nb: 3
+                    }
+                }
+            },
+
+            retina_detect: true
+        });
+        lucide.createIcons();
+        document.querySelectorAll(".event-card,.overview-card,.speaker,.prize-card")
+            .forEach(el => {
+                observer.observe(el);
+            });
+        function toggleRegister() {
+
+            const widget = document.getElementById("registerWidget");
+
+            widget.classList.toggle("active");
+
+        }
+        document.querySelectorAll(".faq-question").forEach(q => {
+            q.addEventListener("click", () => {
+
+                const item = q.parentElement;
+                item.classList.toggle("active");
+
+            });
+        });
+        window.addEventListener("scroll", () => {
+
+            const scroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+            const progress = (scroll / height) * 100;
+
+            document.querySelector(".scroll-progress").style.width = progress + "%";
+
+        });
+    </script>
+
+    <!-- Registration Widget -->
+
+    <div class="register-widget" id="registerWidget">
+
+        <button class="widget-close" onclick="toggleRegister()">✕</button>
+
+        <div class="register-banner">
+
+            <span>
+                ⚠️ Please read the <a href="brochure.pdf" target="_blank">event brochure</a> for rules & guidelines
+                before registering.
+            </span>
+
+        </div>
+
+        <iframe src="https://forms.office.com/e/CFcCwwwsAx?embed=true" frameborder="0" marginwidth="0" marginheight="0"
+            allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen>
+        </iframe>
+
+    </div>
+
+
+    <div class="register-button" onclick="toggleRegister()">
+
+        <i data-lucide="edit"></i>
+        Register Now!!
+
+    </div>
+</body>
+
+</html>
